@@ -1,7 +1,7 @@
 import React, { createContext, useCallback, useContext, useMemo, useState } from "react";
 import { DarktTheme, LightTheme } from "../themes";
 import { ThemeProvider } from "@emotion/react";
-import { Box } from "@mui/material";
+import { Grid } from "@mui/material";
 
 interface IthemeContextData {
     themeName: "light" | "dark";
@@ -34,10 +34,10 @@ export const AppThemeProvider: React.FC<IappThemeProviderProps> = ({ children })
 
   return (
     <ThemeContext.Provider value={{ themeName, toggleTheme }}>
-      <ThemeProvider theme={DarktTheme}>
-        <Box width='100vw' height='100vh' bgcolor={theme.palette.background.default}> 
+      <ThemeProvider theme={theme}>
+        <Grid width='100vw' height='100vh' bgcolor={theme.palette.background.default}> 
           {children}
-        </Box>
+        </Grid>
       </ThemeProvider>
     </ThemeContext.Provider>
   );
